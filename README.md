@@ -3,7 +3,15 @@
 爬取天眼查中企业信息
 目标抓取前五页内容，6页之后需要vip，暂时没有购买的打算
 
-主要目标：
-1.经常爬取需要维护cookies,利用selenium进行模拟登录
-2.中文字体反爬，需要每天更新一下字体文件tyc-num.woff（利用FontCreator查看）
+crawl_url爬取搜索得到的公司url
+get_data获取里面公司信息（主要获取有字体反爬的区域）
+两个文件的cookie都要进行更新
+利用reference绕过机器人验证
 
+天眼查登陆验证时极验二代，爬取页面的验证时极验三代
+fontchange是解决字体反爬的代码，而利用reference后就没有字体反爬现象了
+fontchange使用：
+下载每天的字体文件tyc-num.woff，
+在fontcreator中打开，
+截图到微信小程序传图识字获得ocr,
+针对数字修改映射，value是实际值也就是字体显示的数字，key是html的数字
